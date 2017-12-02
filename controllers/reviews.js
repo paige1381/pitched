@@ -40,16 +40,15 @@ router.get('/', async (req, res) => {
 
 
 // json
-// router.get('/json', (req, res) => {
-//   const allReviews = Review.find();
-//   try {
-//     res.send(allReviews);
-//   }
-//   catch (err) {
-//     res.send(err.message);
-//   }
-// });
-
+router.get('/json', async (req, res) => {
+  try {
+    const allReviews = await Review.find();
+    res.send(allReviews);
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
 
 // seed
 router.get('/seed', async (req, res) => {
