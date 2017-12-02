@@ -13,8 +13,7 @@ const Review = require('../models/reviews.js');
 router.get('/', async (req, res) => {
   try {
     const allReviews = await Review.find().sort({createdAt: -1});
-    res.send(allReviews);
-    // res.render('photos/index.ejs', {allPhotos});
+    res.render('reviews/index.ejs', {allReviews});
   }
   catch (err) {
     res.send(err.message);

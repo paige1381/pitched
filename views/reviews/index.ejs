@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
+  <body>
+    <nav>
+      <% include ../partials/nav.ejs %>
+    </nav>
+    <div class="content">
+
+      <div>
+      </div>
+
+      <div>
+
+        <% for (var i = 0; i < allReviews.length; i++) { %>
+          <a href="/reviews/<%= allReviews[i].id %>"><img src="<%= allReviews[i].img[0] %>"/></a>
+        <% } %>
+
+      </div>
+
+    </div>
+  </body>
+</html>
