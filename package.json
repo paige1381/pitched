@@ -1,0 +1,27 @@
+{
+  "name": "pitched",
+  "version": "1.0.0",
+  "description": "Campsite reviews app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paige1381/pitched.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paige1381/pitched/issues"
+  },
+  "homepage": "https://github.com/paige1381/pitched#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.13.5",
+    "morgan": "^1.9.0",
+    "pretty-error": "^2.1.1"
+  }
+}
