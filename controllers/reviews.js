@@ -28,6 +28,16 @@ router.get('/', async (req, res) => {
 
 
 // create
+router.post('/', async (req, res) => {
+  try {
+    const newReview = await Review.create(req.body);
+    res.send(newReview);
+    // res.redirect('/reviews');
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
 
 
 // edit
