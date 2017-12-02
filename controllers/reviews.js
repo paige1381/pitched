@@ -5,21 +5,21 @@ const router  = express.Router();
 
 // models
 const Review = require('../models/reviews.js');
-const Comment = require('../models/comments.js');
+// const Comment = require('../models/comments.js');
 
 
 // Routes =============================
 // index
-// router.get('/reviews', async (req, res) => {
-//   try {
-//     const allReviews = await Review.find().sort({createdAt: -1});
-//     res.send(allReviews);
-//     // res.render('photos/index.ejs', {allPhotos});
-//   }
-//   catch (err) {
-//     res.send(err.message);
-//   }
-// });
+router.get('/', async (req, res) => {
+  try {
+    const allReviews = await Review.find().sort({createdAt: -1});
+    res.send(allReviews);
+    // res.render('photos/index.ejs', {allPhotos});
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
 
 // new
 
