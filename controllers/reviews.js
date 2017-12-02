@@ -21,12 +21,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// new
-
-
-// show
-
-
 // create
 router.post('/', async (req, res) => {
   try {
@@ -39,6 +33,16 @@ router.post('/', async (req, res) => {
   }
 });
 
+// new
+
+
+// show
+router.get('/:id', async (req, res) => {
+  const review = await Review.findById(req.params.id);
+  // const comments = await Comment.find({photo: photo._id}).sort({createdAt: -1});
+  // res.render('photos/show.ejs', {photo, comments});
+  res.send(review);
+});
 
 // edit
 
