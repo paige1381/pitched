@@ -7,8 +7,35 @@
     <nav>
       <% include ../partials/nav.ejs %>
     </nav>
-    <div>
-      
-    </div>
+    <div class="content">
+
+
+      <div>
+        <% for (let i = 0; i < review.img.length; i++) { %>
+          <img src="<%= review.img[i] %>"/>
+        <% } %>
+      </div>
+
+      <div>
+
+        <div>
+          <% if (review.site !== "") { %>
+            <%= review.location %>: <%= review.site %>
+          <% }
+          else { %>
+            <%= review.location %>
+          <% } %>
+        </div>
+        <div>
+          Rating: <%= review.rating %>
+        </div>
+
+      </div>
+      <div>
+
+      </div>
+        <%= review.review %>
+      </div>
+
   </body>
 </html>

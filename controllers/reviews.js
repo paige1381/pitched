@@ -39,8 +39,7 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const review = await Review.findById(req.params.id);
   // const comments = await Comment.find({photo: photo._id}).sort({createdAt: -1});
-  // res.render('photos/show.ejs', {photo, comments});
-  res.send(review);
+  res.render('reviews/show.ejs', {review});
 });
 
 // edit
