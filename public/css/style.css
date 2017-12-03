@@ -3,12 +3,17 @@ body {
   margin: auto;
 }
 
+h3 {
+  font-weight: normal;
+}
+
 nav {
   margin-bottom: 30px;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 a, a:hover {
@@ -24,26 +29,80 @@ span {
   margin-left: 10px;
 }
 
-.img-index {
+.jumbotron > h2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.jumbotron {
+  width: 600px;
+  height: 300px;
+  padding: 10px 5px;
+  margin: 0;
+}
+
+.jumbotron a {
+  padding-right: 10px;
+}
+
+.index-link {
+  padding: 0 10px;
+}
+
+.index-card {
   width: 300px;
   height: 300px;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.img-index {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 15;
 }
 
 .img-index:hover {
   opacity: .8;
 }
 
+.img-text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, .4);
+  box-sizing: border-box;
+  padding: 10px;
+  visibility: hidden;
+}
+
 .row-1, .row-2, .row-3 {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin: 0;
+  /*border: 1px red solid;*/
+  padding: 0;
 }
 
 .row-3 {
   justify-content: flex-start;
+}
+.add-review {
+  width: 300px;
+  display: flex;
+  align-items: center;
 }
 
 footer {

@@ -8,7 +8,7 @@ const reviewSchema = mongoose.Schema(
     site: String,
     rating: {type: Number, required: true},
     type: {type: String, required: true},
-    img: [String]
+    img: {type: [String], required: true}
   },
   {
     timestamps: true

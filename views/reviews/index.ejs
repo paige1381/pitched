@@ -9,29 +9,51 @@
     </nav>
     <div class="content">
 
-      <div>
+      <div class="row-1">
+        <div class="jumbotron">
+          <h1>Get inspired &amp; camp out</h1>
+          <h3>Rate and review campsites added by users like you</h3>
+          <h2>
+            <a href="#">RV</a> |
+            <a class="index-link" href="#">Car</a> |
+            <a class="index-link" href="#">Tent</a>
+          </h2>
+        </div>
+        <a class="index-card" href="/reviews/<%= allReviews[0].id %>">
+          <img class="img-index" src="<%= allReviews[0].img[0] %>"/>
+          <div class="img-text"><%= allReviews[0].location %></div>
+        </a>
       </div>
 
-      <div>
-        <div class="row-1">
-          <a href="/reviews/<%= allReviews[0].id %>"><img class="img-index" src="<%= allReviews[0].img[0] %>"/></a>
-        </div>
+      <div class="row-2">
+        <% for (var i = 1; i < 4; i++) { %>
+          <a class="index-card" href="/reviews/<%= allReviews[i].id %>">
+            <img class="img-index" src="<%= allReviews[i].img[0] %>"/>
+            <div class="img-text"><%= allReviews[i].location %></div>
+          </a>
+        <% } %>
+      </div>
 
-        <div class="row-2">
-          <% for (var i = 1; i < 4; i++) { %>
-            <a href="/reviews/<%= allReviews[i].id %>"><img class="img-index" src="<%= allReviews[i].img[0] %>"/></a>
-          <% } %>
-        </div>
-
-        <div class="row-3">
-          <% for (var i = 4; i < 6; i++) { %>
-            <a href="/reviews/<%= allReviews[i].id %>"><img class="img-index" src="<%= allReviews[i].img[0] %>"/></a>
-          <% } %>
-        </div>
+      <div class="row-3">
+        <% for (var i = 4; i < 6; i++) { %>
+          <a class="index-card" href="/reviews/<%= allReviews[i].id %>">
+            <img class="img-index" src="<%= allReviews[i].img[0] %>"/>
+            <div class="img-text"><%= allReviews[i].location %></div>
+          </a>
+        <% } %>
+        <a href="#">
+          <div class="jumbotron add-review img-index">
+            <h2>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              <div class="index-link">Add a review</div>
+            </h2>
+          </div>
+        </a>
 
       </div>
 
     </div>
+
     <% include ../partials/footer.ejs %>
   </body>
 </html>
