@@ -32,25 +32,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// new
-
-
-// show
-router.get('/:id', async (req, res) => {
-  const review = await Review.findById(req.params.id);
-  // const comments = await Comment.find({photo: photo._id}).sort({createdAt: -1});
-  res.render('reviews/show.ejs', {review});
-});
-
-// edit
-
-
-// update
-
-
-// delete
-
-
 // json
 router.get('/json', async (req, res) => {
   try {
@@ -93,5 +74,24 @@ router.get('/seed', async (req, res) => {
     res.send(err.message);
   };
 });
+
+// new
+
+
+// show
+router.get('/:id', async (req, res) => {
+  const review = await Review.findById(req.params.id);
+  // const comments = await Comment.find({photo: photo._id}).sort({createdAt: -1});
+  res.render('reviews/show.ejs', {review});
+});
+
+// edit
+
+
+// update
+
+
+// delete
+
 
 module.exports = router;

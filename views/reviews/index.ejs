@@ -13,13 +13,25 @@
       </div>
 
       <div>
+        <div class="row-1">
+          <a href="/reviews/<%= allReviews[0].id %>"><img class="img-index" src="<%= allReviews[0].img[0] %>"/></a>
+        </div>
 
-        <% for (var i = 0; i < allReviews.length; i++) { %>
-          <a href="/reviews/<%= allReviews[i].id %>"><img src="<%= allReviews[i].img[0] %>"/></a>
-        <% } %>
+        <div class="row-2">
+          <% for (var i = 1; i < 4; i++) { %>
+            <a href="/reviews/<%= allReviews[i].id %>"><img class="img-index" src="<%= allReviews[i].img[0] %>"/></a>
+          <% } %>
+        </div>
+
+        <div class="row-3">
+          <% for (var i = 4; i < 6; i++) { %>
+            <a href="/reviews/<%= allReviews[i].id %>"><img class="img-index" src="<%= allReviews[i].img[0] %>"/></a>
+          <% } %>
+        </div>
 
       </div>
 
     </div>
+    <% include ../partials/footer.ejs %>
   </body>
 </html>
