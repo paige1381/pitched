@@ -19,10 +19,13 @@
             <a class="index-link" href="#">Tent</a>
           </h2>
         </div>
-        <a class="index-card top-right" href="/reviews/<%= allReviews[0].id %>">
-          <img class="img-index" src="<%= allReviews[0].img[0] %>"/>
-          <div class="img-text"><%= allReviews[0].location %></div>
-        </a>
+
+          <% for (var i = 0; i < 1; i++) { %>
+            <a class="index-card top-right" href="/reviews/<%= allReviews[i].id %>">
+              <img class="img-index" src="<%= allReviews[i].img[0] %>"/>
+              <div class="img-text"><%= allReviews[i].location %></div>
+            </a>
+          <% } %>
       </div>
 
       <div class="row-2">
