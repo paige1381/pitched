@@ -8,7 +8,7 @@ h3 {
 }
 
 nav {
-  margin-bottom: 30px;
+  margin: 30px 0;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
@@ -16,7 +16,7 @@ nav {
   align-items: baseline;
 }
 
-a, a:hover {
+a {
   text-decoration: none;
   color: black;
   display: flex;
@@ -24,7 +24,12 @@ a, a:hover {
   align-items: baseline;
 }
 
-span {
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.glyphicon-plus {
   font-size: 25px;
   margin-left: 10px;
 }
@@ -41,6 +46,8 @@ span {
   height: 300px;
   padding: 10px 5px;
   margin: 0;
+  box-sizing: border-box;
+  /*border: 1px red solid;*/
 }
 
 .jumbotron a {
@@ -58,6 +65,8 @@ span {
   padding: 0;
   position: relative;
   z-index: 10;
+  box-sizing: border-box;
+  /*border: 1px solid red;*/
 }
 
 .img-index {
@@ -80,7 +89,7 @@ span {
   color: white;
   font-size: 20px;
   letter-spacing: 1px;
-  width: 300px;
+  width: 100%;
   background-color: rgba(0, 0, 0, .4);
   box-sizing: border-box;
   padding: 10px;
@@ -91,26 +100,61 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 0;
-  /*border: 1px red solid;*/
+  margin-bottom: 5px;
   padding: 0;
 }
 
-.row-3 {
-  justify-content: flex-start;
+.middle {
+  margin: 0 5px 0 5px;
 }
+
+.row-3 {
+  /*justify-content: flex-start;*/
+  margin-bottom: 0;
+}
+
+.row-3 > .index-card {
+  margin-right: 5px;
+}
+
+.top-right {
+  margin-left: 5px;
+}
+
 .add-review {
   width: 300px;
+  height: 300px;
   display: flex;
   align-items: center;
+  margin: 0;
+}
+
+.img-show {
+  width: 900px;
+  height: 600px;
+}
+
+.show-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.review {
+    font-size: 18px;
+}
+
+.glyphicon-star {
+  color: #FEB13D;
+  font-size: 22px;
+}
+
+.glyphicon-tent {
+  font-size: 24px;
+  margin-left: 5px;
 }
 
 footer {
   margin-top: 30px;
   border-top: 1px solid black;
-}
-
-nav {
-  margin-bottom: 30px;
-  border-bottom: 1px solid black;
 }

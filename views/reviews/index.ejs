@@ -19,7 +19,7 @@
             <a class="index-link" href="#">Tent</a>
           </h2>
         </div>
-        <a class="index-card" href="/reviews/<%= allReviews[0].id %>">
+        <a class="index-card top-right" href="/reviews/<%= allReviews[0].id %>">
           <img class="img-index" src="<%= allReviews[0].img[0] %>"/>
           <div class="img-text"><%= allReviews[0].location %></div>
         </a>
@@ -41,13 +41,11 @@
             <div class="img-text"><%= allReviews[i].location %></div>
           </a>
         <% } %>
-        <a href="#">
-          <div class="jumbotron add-review img-index">
-            <h2>
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              <div class="index-link">Add a review</div>
-            </h2>
-          </div>
+        <a href="/reviews/new" class="jumbotron add-review">
+          <h2>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            <div class="index-link">Add a review</div>
+          </h2>
         </a>
 
       </div>

@@ -25,28 +25,28 @@
           <% } %>
 
         </ol>
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner img-show" role="listbox">
 
           <% for (let i = 0; i < review.img.length; i++) {
 
             if (i === 0) { %>
               <div class="item active">
-                <img class="first-slide" src="<%= review.img[i] %>" >
+                <img class="first-slide img-show" src="<%= review.img[i] %>" >
               </div>
             <% }
             else if (i === 1) { %>
               <div class="item">
-                <img class="second-slide" src="<%= review.img[i] %>" >
+                <img class="second-slide img-show" src="<%= review.img[i] %>" >
               </div>
               <% }
             else if (i === 2) { %>
               <div class="item">
-                <img class="third-slide" src="<%= review.img[i] %>" >
+                <img class="third-slide img-show" src="<%= review.img[i] %>" >
               </div>
             <% }
             else { %>
               <div class="item active">
-                <img class="first-slide" src="http://via.placeholder.com/900x450" >
+                <img class="first-slide img-show" src="http://via.placeholder.com/900x500" >
               </div>
             <% } %>
 
@@ -63,21 +63,25 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      <div>
-        <div>
+      <div class="show-rating">
+        <h2>
           <% if (review.site !== "") { %>
             <%= review.location %>: <%= review.site %>
           <% }
           else { %>
             <%= review.location %>
           <% } %>
-        </div>
-        <div>
-          Rating: <%= review.rating %>
-        </div>
+        </h2>
+        <h2>
+
+          <% for (let i = 0; i < review.rating; i++) { %>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <% } %>
+
+        </h2>
       </div>
 
-      <div>
+      <div class="review">
         <%= review.review %>
       </div>
     </div>

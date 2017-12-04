@@ -8,6 +8,8 @@ $(() => {
     $(event.currentTarget).parent().children('.img-text').css('visibility', 'hidden')
   }
 
+  $('.index-card').eq(2).addClass('middle');
+
   $('.img-index').hover(mouseEnter, mouseLeave);
 
 })

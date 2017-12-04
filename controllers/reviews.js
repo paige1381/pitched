@@ -47,6 +47,15 @@ router.get('/json', async (req, res) => {
 router.get('/seed', async (req, res) => {
   const reviews = [
     {
+      img:  ['https://images.unsplash.com/photo-1503265192943-9d7eea6fc77a?auto=format&fit=crop&w=1267&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1470930938908-e8d5c5bd05df?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1444228425018-ff8535a55c93?auto=format&fit=crop&w=1351&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'],
+      submitter: 'Paige',
+      review: 'Sea lettuce melon cabbage leek bamboo shoot lettuce rutabaga jícama silver beet amaranth pea dandelion scallion pea sprouts yarrow salsify bitterleaf courgette. Azuki bean horseradish potato kale welsh onion fennel green bean azuki bean chickweed aubergine bell pepper sea lettuce rutabaga cucumber grape. Radish grape rutabaga celery beetroot kombu spring onion cauliflower soybean.',
+      location: 'Grand Teton National Park',
+      site: 'Sleeping Indian',
+      rating: 5,
+      type: 'Tent'
+    },
+    {
       img: ['https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1487730116645-74489c95b41b?dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1414016642750-7fdd78dc33d9?auto=format&fit=crop&w=1349&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'],
       submitter: 'Paige',
       review: 'Sea lettuce melon cabbage leek bamboo shoot lettuce rutabaga jícama silver beet amaranth pea dandelion scallion pea sprouts yarrow salsify bitterleaf courgette. Azuki bean horseradish potato kale welsh onion fennel green bean azuki bean chickweed aubergine bell pepper sea lettuce rutabaga cucumber grape. Radish grape rutabaga celery beetroot kombu spring onion cauliflower soybean.',
@@ -76,6 +85,9 @@ router.get('/seed', async (req, res) => {
 });
 
 // new
+router.get('/new', (req, res) => {
+  res.render('reviews/new.ejs');
+});
 
 
 // show
