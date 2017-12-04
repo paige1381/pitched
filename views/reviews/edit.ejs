@@ -4,9 +4,12 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
-    <nav>
+    <nav class="show-nav">
       <% include ../partials/nav.ejs %>
     </nav>
+    <form class="alt-nav" action="/reviews/<%=review.id%>?_method=delete" method="post">
+      <button class="delete">delete</button>
+    </form>
     <div class="content new-edit">
 
       <form action="/reviews/<%=review.id%>?_method=put" method="post">
@@ -87,7 +90,7 @@
           </div>
         </div>
 
-        <input type="submit" class="btn btn-primary" name="submit" value="submit" >
+        <input type="submit" class="btn submit btn-lg" name="submit" value="submit" >
 
       </form>
 

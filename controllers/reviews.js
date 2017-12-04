@@ -132,7 +132,6 @@ router.get('/:id/edit', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const review = await Review.findByIdAndUpdate(req.params.id, req.body);
-    console.log(review.id);
     res.redirect('/reviews/' + review.id);
   }
   catch (err) {
@@ -141,6 +140,15 @@ router.put('/:id', async (req, res) => {
 });
 
 // delete
+router.delete('/:id', async (req, res) => {
+  try {
+    const review = await Review.findByIdAndRemove(req.params.id);
+    res.redirect('/reviews');
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+})
 
 
 module.exports = router;

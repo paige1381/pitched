@@ -4,9 +4,13 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
-    <nav>
+    <nav class="show-nav">
       <% include ../partials/nav.ejs %>
     </nav>
+    <div class="alt-nav">
+      <a href="/reviews/<%=review.id%>/edit">edit</a>
+    </div>
+
     <div class="content">
 
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
