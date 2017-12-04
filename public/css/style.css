@@ -130,8 +130,9 @@ a:hover {
 }
 
 .img-show {
-  width: 900px;
-  height: 600px;
+  width: 900px !important;
+  height: 600px !important;
+  object-fit: contain !important;
 }
 
 .show-rating {
