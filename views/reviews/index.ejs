@@ -19,7 +19,7 @@
             <a class="index-link" href="#">Tent</a>
           </h2>
         </div>
-          <% if (allReviews) {%>
+          <% if (allReviews) { %>
             <a class="index-card top-right" href="/reviews/<%= allReviews[0].id %>">
               <img class="img-index" src="<%= allReviews[0].img[0] %>"/>
               <div class="img-text"><%= allReviews[0].location %></div>
@@ -27,7 +27,7 @@
           <% }
           else { %>
             <div class="index-card top-right">
-              <img class="img-index" src=""http://via.placeholder.com/300x300""/>
+              <img class="img-index" src="http://via.placeholder.com/300x300"/>
               <div class="img-text">No image available</div>
             </div>
           <% } %>

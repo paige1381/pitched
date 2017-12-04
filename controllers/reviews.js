@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
   try {
     const allReviews = await Review.find().sort({createdAt: -1});
     res.render('reviews/index.ejs', {allReviews});
+    console.log(allReviews);
   }
   catch (err) {
     res.send(err.message);
@@ -72,6 +73,32 @@ router.get('/seed', async (req, res) => {
       site: 'Robbers Roost',
       rating: 5,
       type: 'Car'
+    },
+    {
+      img:  ['https://images.unsplash.com/photo-1489893117776-b13fed1ad239?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://unsplash.com/photos/LUfmqLfEAoE'],
+      submitter: 'Paige',
+      review: 'Sea lettuce melon cabbage leek bamboo shoot lettuce rutabaga jícama silver beet amaranth pea dandelion scallion pea sprouts yarrow salsify bitterleaf courgette. Azuki bean horseradish potato kale welsh onion fennel green bean azuki bean chickweed aubergine bell pepper sea lettuce rutabaga cucumber grape. Radish grape rutabaga celery beetroot kombu spring onion cauliflower soybean.',
+      location: 'Saguaro National Park',
+      site: 'Helens Dome',
+      rating: 5,
+      type: 'RV'
+    },
+    {
+      img: ['https://images.unsplash.com/photo-1499363536502-87642509e31b?auto=format&fit=crop&w=1534&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1444012236767-1b471c68781c?auto=format&fit=crop&w=1355&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1482355347028-ff60443f60fe?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'],
+      submitter: 'Joey',
+      review: 'Sea lettuce melon cabbage leek bamboo shoot lettuce rutabaga jícama silver beet amaranth pea dandelion scallion pea sprouts yarrow salsify bitterleaf courgette. Azuki bean horseradish potato kale welsh onion fennel green bean azuki bean chickweed aubergine bell pepper sea lettuce rutabaga cucumber grape. Radish grape rutabaga celery beetroot kombu spring onion cauliflower soybean.',
+      location: 'Grand Canyon National Park',
+      site: 'Hance Rapids',
+      rating: 4,
+      type: 'Tent'
+    },
+    {
+      img: ['https://images.unsplash.com/photo-1499416019036-fe88610601ce?auto=format&fit=crop&w=1250&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1465865523598-a834aac5d3fa?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', 'https://images.unsplash.com/photo-1489212855151-30b04f553971?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'],
+      submitter: 'Paige',
+      review: 'Secondary fermentation degrees plato units of bitterness, cask conditioned ale ibu real ale pint glass craft beer. krausen goblet grainy ibu brewhouse lagering finishing hops. Trappist, black malt chocolate malt balthazar gravity dextrin saccharification trappist final gravity. Aau scotch ale, adjunct. hops bung infusion, cask conditioning pitching malt extract.',
+      location: 'Big Sur',
+      rating: 5,
+      type: 'RV'
     }
   ];
 
