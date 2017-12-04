@@ -13,12 +13,12 @@ const commmentsController = require('./controllers/comments.js');
 
 
 // Port ===============================
-const port = 3000;
+const PORT = process.env.PORT || 3000; // (remote || local)
 
 
 // Database ===========================
 // connect
-const mongoURI = 'mongodb://localhost:27017/pitched_reviews'; // locate mongo server
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/pitched_reviews'; // locate mongo databases (remote || local)
 mongoose.connect(mongoURI, { useMongoClient: true }); // connect to location
 mongoose.Promise = global.Promise; // setting the promise library to native
 
@@ -47,4 +47,4 @@ app.get('/', (req, res) => {
 
 
 // Listen =============================
-app.listen(port, console.log('listening on port', port));
+app.listen(PORT, console.log('listening on port', PORT));
