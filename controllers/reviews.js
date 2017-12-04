@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   try {
     const allReviews = await Review.find().sort({createdAt: -1});
     console.log(allReviews);
-    res.render('reviews/index.ejs', {allReviews});
+    res.render('./reviews/index.ejs', {allReviews});
   }
   catch (err) {
     res.send(err.message);
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newReview = await Review.create(req.body);
-    res.redirect('/reviews');
+    res.redirect('/reviews/' + newReview.id);
   }
   catch (err) {
     res.send(err.message);
@@ -112,21 +112,33 @@ router.get('/seed', async (req, res) => {
 
 // new
 router.get('/new', (req, res) => {
-  res.render('reviews/new.ejs');
+  res.render('./reviews/new.ejs');
 });
 
 // show
 router.get('/:id', async (req, res) => {
   const review = await Review.findById(req.params.id);
   // const comments = await Comment.find({photo: photo._id}).sort({createdAt: -1});
-  res.render('reviews/show.ejs', {review});
+  res.render('./reviews/show.ejs', {review});
 });
 
 // edit
-
+router.get('/:id/edit', async (req, res) => {
+  const review = await Review.findById(req.params.id);
+  res.render('./reviews/edit.ejs', {review});
+});
 
 // update
-
+router.put('/:id', async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(req.params.id, req.body);
+    console.log(review.id);
+    res.redirect('/reviews/' + review.id);
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
 
 // delete
 
