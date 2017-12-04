@@ -9,32 +9,87 @@
     </nav>
     <div class="content new-edit">
 
-      
+      <form action="/reviews" method="post">
 
-      <div>
-        <div>state/park: </div>
-        <input type="text"/>
-      </div>
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlFile1">upload image #1</label>
+          <div class="col-sm-10">
+            <input type="text" name="img" class="form-control" id="exampleFormControlInput1" >
+            <%# <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">%>
+          </div>
+        </div>
 
-      <div>
-        <div>campsite: </div>
-        <input type="text" placeholder="optional"/>
-      </div>
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlFile1">upload image #2</label>
+          <div class="col-sm-10">
+            <input type="text" name="img" class="form-control" id="exampleFormControlInput1" >
+            <%# <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">%>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlFile1">upload image #3</label>
+          <div class="col-sm-10">
+            <input type="text" name="img" class="form-control" id="exampleFormControlInput1" >
+            <%# <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1" >%>
+          </div>
+        </div>
 
-      <div>
-        <div>state/park: </div>
-        <input type="text"/>
-      </div>
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlInput1">state or park</label>
+          <div class="col-sm-10">
+            <input type="text" name="location" class="form-control" id="exampleFormControlInput1">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlInput1">campsite</label>
+          <div class="col-sm-10">
+            <input type="text" name="site" class="form-control" id="exampleFormControlInput1" placeholder="optional">
+          </div>
+        </div>
 
-      <div>
-        <div>type: </div>
-        <input type="text"/>
-      </div>
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlSelect1">campsite type</label>
+          <div class="col-sm-10">
 
-      <div>
-        <div>review: </div>
-        <input type="text"/>
-      </div>
+            <select class="form-control" name="type" id="exampleFormControlSelect1">
+              <option>RV</option>
+              <option>Car</option>
+              <option>Tent</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlSelect1">rating</label>
+          <div class="col-sm-10">
+
+            <select class="form-control" name="rating" type="number" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlTextarea1">review</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" name="review" id="exampleFormControlTextarea1" rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class='col-form-label col-sm-2' for="exampleFormControlInput1">submitted by</label>
+          <div class="col-sm-10">
+            <input type="text" name="submitter" class="form-control" id="exampleFormControlInput1" placeholder="your name">
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" name="submit" value="submit" >
+
+      </form>
 
     <% include ../partials/footer.ejs %>
   </body>

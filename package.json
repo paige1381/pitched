@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/paige1381/pitched#readme",
   "dependencies": {
+    "bootstrap-rating-input": "^0.4.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "method-override": "^2.3.10",

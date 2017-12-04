@@ -13,8 +13,8 @@ const Review = require('../models/reviews.js');
 router.get('/', async (req, res) => {
   try {
     const allReviews = await Review.find().sort({createdAt: -1});
-    res.render('reviews/index.ejs', {allReviews});
     console.log(allReviews);
+    res.render('reviews/index.ejs', {allReviews});
   }
   catch (err) {
     res.send(err.message);
@@ -25,8 +25,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newReview = await Review.create(req.body);
-    res.send(newReview);
-    // res.redirect('/reviews');
+    res.redirect('/reviews');
   }
   catch (err) {
     res.send(err.message);
@@ -115,7 +114,6 @@ router.get('/seed', async (req, res) => {
 router.get('/new', (req, res) => {
   res.render('reviews/new.ejs');
 });
-
 
 // show
 router.get('/:id', async (req, res) => {
