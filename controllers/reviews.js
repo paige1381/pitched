@@ -13,6 +13,11 @@ const Review = require('../models/reviews.js');
 router.get('/', async (req, res) => {
   try {
     const allReviews = await Review.find().sort({createdAt: -1});
+    if (allReviews == 'undefined') {
+      for (let i = 0; i < 6; i++) {
+        allReviews.img[i] = "http://via.placeholder.com/300x300"
+      }
+    }
     res.render('./reviews/index.ejs', {allReviews});
   }
   catch (err) {
@@ -23,22 +28,14 @@ router.get('/', async (req, res) => {
 // create
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body);
-
-    let reader = new FileReader();
-    let imgArr = [];
-    let newImg = reader.readAsDataURL(req.body.img);
-
-    req.body.img = newImg;
-    console.log(req.body.img);
-
-    // for (let i = 0; i < req.body.img.length; i++) {
-    //   if (req.body.img[i] === '') {
-    //     req.body.img.splice(i, 1);
-    //     i--;
-    //   }
-    // const newReview = await Review.create(req.body);
-    // res.redirect('/reviews/' + newReview.id);
+    for (let i = 0; i < req.body.img.length; i++) {
+      if (req.body.img[i] === '') {
+        req.body.img.splice(i, 1);
+        i--;
+      }
+    const newReview = await Review.create(req.body);
+    res.redirect('/reviews/' + newReview.id);
+    }
   }
   catch (err) {
     res.send(err.message);
@@ -155,8 +152,6 @@ router.get('/tent', async (req, res) => {
     res.send(err.message);
   }
 });
-
-
 
 // new
 router.get('/new', (req, res) => {
