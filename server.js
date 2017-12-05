@@ -36,7 +36,7 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(morgan('dev')); // logs request info in console
 app.use('/reviews', reviewsController);
-// app.use('/comments', commmentsController);
+app.use('/comments', commmentsController);
 
 
 // Routes =============================

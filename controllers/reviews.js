@@ -5,7 +5,7 @@ const router  = express.Router();
 
 // models
 const Review = require('../models/reviews.js');
-// const Comment = require('../models/comments.js');
+const Comment = require('../models/comments.js');
 
 
 // Routes =============================
@@ -157,8 +157,8 @@ router.get('/new', (req, res) => {
 // show
 router.get('/:id', async (req, res) => {
   const review = await Review.findById(req.params.id);
-  // const comments = await Comment.find({photo: photo._id}).sort({createdAt: -1});
-  res.render('./reviews/show.ejs', {review});
+  const comments = await Comment.find({review: review._id}).sort({createdAt: -1});
+  res.render('./reviews/show.ejs', {review, comments});
 });
 
 // edit
