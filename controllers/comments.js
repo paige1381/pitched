@@ -1,13 +1,13 @@
 // Dependencies =======================
 // require
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 // model
 const Comment = require('../models/comments.js');
 
 
-// Routes
+// Routes =============================
 // index
 router.get('/', async (req, res) => {
   const allComments = await Comment.find().populate('photo');

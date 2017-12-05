@@ -1,0 +1,80 @@
+// Dependencies =======================
+// require
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
+
+// models
+const User = require('../models/users.js');
+const Review = require('../models/reviews.js');
+
+
+// Routes =============================
+// login
+router.get('/login', async (req, res) => {
+  try {
+    const allReviews = await Review.find().sort({createdAt: -1}).limit(6);
+    res.render('./reviews/login.ejs', {
+      allReviews: allReviews
+    });
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
+
+
+router.post('/login', async (req, res) => {
+  try {
+    const user = await User.findOne({username: req.body.username});
+    if (bcrypt.compareSync(req.body.password, user.password)) {
+      // req.session.message = '';
+      req.session.username = req.body.username;
+      req.session.logged  = true;
+      console.log(req.session, req.body);
+      res.redirect('/reviews')
+    }
+    else {
+      console.log('else in bcrypt compare')
+      req.session.message = 'Username or password are incorrect';
+      res.redirect('/user/login');
+    }
+  }
+  catch (err) {
+      req.session.message = 'Username or password are incorrect';
+      res.redirect('/user/login');
+  }
+});
+
+// logout
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+// router.get('/update', (req, res) => { //any route will work
+// 	req.session.anyProperty = 'changing anyProperty to this value';
+//   console.log(req.session);
+// });
+
+// register
+router.post('/register', async (req, res) => {
+  const password = req.body.password;
+  const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+  const userDbEntry = {};
+  userDbEntry.username = req.body.username;
+  userDbEntry.password = passwordHash;
+  try {
+    const user = await User.create(userDbEntry);
+    console.log('user:', user);
+    req.session.username = user.username;
+    req.session.logged  = true;
+    res.redirect('/reviews');
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
+
+
+module.exports = router;

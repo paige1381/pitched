@@ -6,10 +6,13 @@ const morgan = require('morgan'); // npm i morgan
 require('pretty-error').start(); // npm i pretty-error
 const app = express();
 const methodOverride = require('method-override'); // npm i method-override
+const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 // controllers
 const reviewsController = require('./controllers/reviews.js');
 const commmentsController = require('./controllers/comments.js');
+const sessionsController = require('./controllers/session.js');
 
 
 // Port ===============================
@@ -37,6 +40,12 @@ app.use(methodOverride('_method'));
 app.use(morgan('dev')); // logs request info in console
 app.use('/reviews', reviewsController);
 app.use('/comments', commmentsController);
+app.use('/user', sessionsController);
+app.use(session({
+ secret: "esrxctvygbuhnj",
+ resave: false,
+ saveUninitialized: false
+}));
 
 
 // Routes =============================

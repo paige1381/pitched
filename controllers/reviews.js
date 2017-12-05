@@ -1,7 +1,7 @@
 // Dependencies =======================
 // require
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 // models
 const Review = require('../models/reviews.js');
@@ -11,13 +11,15 @@ const Comment = require('../models/comments.js');
 // Routes =============================
 // index
 router.get('/', async (req, res) => {
-
-  try {
-    const allReviews = await Review.find().sort({createdAt: -1}).limit(6);
-    res.render('./reviews/index.ejs', {allReviews});
+  const allReviews = await Review.find().sort({createdAt: -1}).limit(6);
+  if (req.session.logged) {
+    res.render('./reviews/index.ejs', {
+      allReviews: allReviews,
+      username: req.session.username
+    });
   }
-  catch (err) {
-    res.send(err.message);
+  else {
+    res.redirect('/user/login');
   }
 });
 
@@ -102,6 +104,7 @@ router.get('/seed', async (req, res) => {
       submitter: 'Paige',
       review: 'Secondary fermentation degrees plato units of bitterness, cask conditioned ale ibu real ale pint glass craft beer. krausen goblet grainy ibu brewhouse lagering finishing hops. Trappist, black malt chocolate malt balthazar gravity dextrin saccharification trappist final gravity. Aau scotch ale, adjunct. hops bung infusion, cask conditioning pitching malt extract.',
       location: 'Big Sur',
+      site: '',
       rating: 5,
       type: 'RV'
     }
@@ -158,7 +161,11 @@ router.get('/new', (req, res) => {
 router.get('/:id', async (req, res) => {
   const review = await Review.findById(req.params.id);
   const comments = await Comment.find({review: review._id}).sort({createdAt: -1});
-  res.render('./reviews/show.ejs', {review, comments});
+  res.render('./reviews/show.ejs', {
+    review: review,
+    comments: comments,
+    username: req.session.username
+  });
 });
 
 // edit
