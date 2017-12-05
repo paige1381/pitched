@@ -11,13 +11,9 @@ const Review = require('../models/reviews.js');
 // Routes =============================
 // index
 router.get('/', async (req, res) => {
+
   try {
     const allReviews = await Review.find().sort({createdAt: -1});
-    if (allReviews == 'undefined') {
-      for (let i = 0; i < 6; i++) {
-        allReviews.img[i] = "http://via.placeholder.com/300x300"
-      }
-    }
     res.render('./reviews/index.ejs', {allReviews});
   }
   catch (err) {
