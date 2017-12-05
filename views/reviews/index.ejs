@@ -7,28 +7,22 @@
     <nav>
       <% include ../partials/nav.ejs %>
     </nav>
-    <div class="content">
+    <div class="alt-index">
 
       <div class="row-1">
         <div class="jumbotron">
           <h1>Get inspired &amp; camp out</h1>
           <h3>Rate and review campsites added by users like you</h3>
           <h2>
-            <a href="#">RV</a> |
-            <a class="index-link" href="#">Car</a> |
-            <a class="index-link" href="#">Tent</a>
+            <a href="/reviews/rv">RV</a> |
+            <a class="index-link" href="/reviews/car">Car</a> |
+            <a class="index-link" href="/reviews/tent">Tent</a>
           </h2>
         </div>
-            <a class="index-card top-right" href="/reviews/<%= allReviews[0].id %>">
-              <img class="img-index" src="<%= allReviews[0].img[0] %>"/>
-              <div class="img-text"><%= allReviews[0].location %></div>
-            </a>
-          <%# catch (err) {
-            <div class="index-card top-right">
-              <img class="img-index" src="http://via.placeholder.com/300x300"/>
-              <div class="img-text">No image available</div>
-            </div>
-          } %>
+        <a class="index-card" href="/reviews/<%= allReviews[0].id %>">
+          <img class="img-index" src="<%= allReviews[0].img[0] %>"/>
+          <div class="img-text"><%= allReviews[0].location %></div>
+        </a>
       </div>
 
       <div class="row-2">

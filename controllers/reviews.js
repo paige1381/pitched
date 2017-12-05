@@ -13,7 +13,6 @@ const Review = require('../models/reviews.js');
 router.get('/', async (req, res) => {
   try {
     const allReviews = await Review.find().sort({createdAt: -1});
-    console.log(allReviews);
     res.render('./reviews/index.ejs', {allReviews});
   }
   catch (err) {
@@ -24,8 +23,22 @@ router.get('/', async (req, res) => {
 // create
 router.post('/', async (req, res) => {
   try {
-    const newReview = await Review.create(req.body);
-    res.redirect('/reviews/' + newReview.id);
+    console.log(req.body);
+
+    let reader = new FileReader();
+    let imgArr = [];
+    let newImg = reader.readAsDataURL(req.body.img);
+
+    req.body.img = newImg;
+    console.log(req.body.img);
+
+    // for (let i = 0; i < req.body.img.length; i++) {
+    //   if (req.body.img[i] === '') {
+    //     req.body.img.splice(i, 1);
+    //     i--;
+    //   }
+    // const newReview = await Review.create(req.body);
+    // res.redirect('/reviews/' + newReview.id);
   }
   catch (err) {
     res.send(err.message);
@@ -110,6 +123,41 @@ router.get('/seed', async (req, res) => {
   };
 });
 
+// rv index
+router.get('/rv', async (req, res) => {
+  try {
+    const allReviews = await Review.find({type: "RV"}).sort({createdAt: -1});
+    res.render('./reviews/RVindex.ejs', {allReviews});
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
+
+// car index
+router.get('/car', async (req, res) => {
+  try {
+    const allReviews = await Review.find({type: "Car"}).sort({createdAt: -1});
+    res.render('./reviews/carindex.ejs', {allReviews});
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
+
+// tent index
+router.get('/tent', async (req, res) => {
+  try {
+    const allReviews = await Review.find({type: "Tent"}).sort({createdAt: -1});
+    res.render('./reviews/tentindex.ejs', {allReviews});
+  }
+  catch (err) {
+    res.send(err.message);
+  }
+});
+
+
+
 // new
 router.get('/new', (req, res) => {
   res.render('./reviews/new.ejs');
@@ -131,6 +179,12 @@ router.get('/:id/edit', async (req, res) => {
 // update
 router.put('/:id', async (req, res) => {
   try {
+    for (let i = 0; i < req.body.img.length; i++) {
+      if (req.body.img[i] === '') {
+        req.body.img.splice(i, 1);
+        i--;
+      }
+    }
     const review = await Review.findByIdAndUpdate(req.params.id, req.body);
     res.redirect('/reviews/' + review.id);
   }

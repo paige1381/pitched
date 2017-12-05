@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
+  <body>
+    <nav class="show-nav">
+      <% include ../partials/nav.ejs %>
+    </nav>
+    <div class="alt-index-nav">
+      <div class="alt-index-title">Car</div>
+      <div>
+        <a class="index-link" href="/reviews/rv">RV</a> |
+        <a class="end-link" href="/reviews/tent">Tent</a>
+      </div>
+    </div>
+
+
+    <div class="alt-index">
+      <% for (var i = 0; i < allReviews.length; i++) { %>
+        <a class="index-card" href="/reviews/<%= allReviews[i].id %>">
+          <img class="img-index" src="<%= allReviews[i].img[0] %>"/>
+          <div class="img-text"><%= allReviews[i].location %></div>
+        </a>
+      <% } %>
+
+    </div>
+
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

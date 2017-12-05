@@ -1,5 +1,5 @@
 body {
-  width: 900px;
+  width: 915px;
   margin: auto;
 }
 
@@ -14,6 +14,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  width: 100%;
 }
 
 a {
@@ -42,12 +43,11 @@ a:hover {
 }
 
 .jumbotron {
-  width: 600px;
+  width: 605px;
   height: 300px;
   padding: 10px 5px;
-  margin: 0;
+  margin: 0 2.5px 0 2.5px;
   box-sizing: border-box;
-  /*border: 1px red solid;*/
 }
 
 .jumbotron a {
@@ -61,8 +61,6 @@ a:hover {
 .index-card {
   width: 300px;
   height: 300px;
-  margin: 0;
-  padding: 0;
   position: relative;
   z-index: 10;
   box-sizing: border-box;
@@ -100,25 +98,12 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
   padding: 0;
 }
 
-.middle {
-  margin: 0 5px 0 5px;
-}
-
 .row-3 {
-  /*justify-content: flex-start;*/
   margin-bottom: 0;
-}
-
-.row-3 > .index-card {
-  margin-right: 5px;
-}
-
-.top-right {
-  margin-left: 5px;
 }
 
 .add-review {
@@ -126,11 +111,10 @@ a:hover {
   height: 300px;
   display: flex;
   align-items: center;
-  margin: 0;
 }
 
 .img-show {
-  width: 900px !important;
+  width: 915px !important;
   height: 600px !important;
   object-fit: cover !important;
 }
@@ -168,6 +152,51 @@ a:hover {
   padding-right: 5px;
 }
 
+.alt-nav > h2 {
+  margin: 5px 0 30px 0;
+  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 5px;
+}
+
+.alt-index-nav {
+  margin: 0 0 30px 0;
+  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 5px;
+  align-items: baseline;
+}
+
+.alt-index-nav  > div {
+  margin: 5px 0 30px 0;
+  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 5px;
+}
+
+.alt-index-nav  > .alt-index-title {
+  margin: 0;
+  padding: 0;
+  font-size: 32px;
+}
+
+.edit-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+
+.edit-row .img-index:hover {
+  opacity: 1;
+}
+
 .delete {
   border: none;
   background-color: none;
@@ -178,6 +207,31 @@ a:hover {
   border: 1px solid black;
   background-color: none;
   color: black;
+}
+
+#preview > img {
+  padding: 10px 10px 0 0;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.alt-index {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  width: 915px;
+  margin: auto;
+}
+
+.index-card {
+  box-sizing: border-box;
+  margin: 0 2.5px 5px 2.5px;
+}
+
+.end-link {
+  padding: 0 0 0 10px;
 }
 
 footer {
