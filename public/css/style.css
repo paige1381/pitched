@@ -64,7 +64,11 @@ a:hover {
   position: relative;
   z-index: 10;
   box-sizing: border-box;
-  /*border: 1px solid red;*/
+}
+
+.index-card > a {
+  width: 100%;
+  height: 100%;
 }
 
 .img-index {

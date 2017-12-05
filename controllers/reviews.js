@@ -13,7 +13,7 @@ const Review = require('../models/reviews.js');
 router.get('/', async (req, res) => {
 
   try {
-    const allReviews = await Review.find().sort({createdAt: -1});
+    const allReviews = await Review.find().sort({createdAt: -1}).limit(6);
     res.render('./reviews/index.ejs', {allReviews});
   }
   catch (err) {
@@ -23,15 +23,17 @@ router.get('/', async (req, res) => {
 
 // create
 router.post('/', async (req, res) => {
+  console.log(req.body.img);
   try {
     for (let i = 0; i < req.body.img.length; i++) {
       if (req.body.img[i] === '') {
         req.body.img.splice(i, 1);
         i--;
       }
+    }
+    console.log(req.body.img);
     const newReview = await Review.create(req.body);
     res.redirect('/reviews/' + newReview.id);
-    }
   }
   catch (err) {
     res.send(err.message);
