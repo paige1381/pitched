@@ -23,7 +23,6 @@ router.get('/', async (req, res) => {
 
 // create
 router.post('/', async (req, res) => {
-  console.log(req.body.img);
   try {
     for (let i = 0; i < req.body.img.length; i++) {
       if (req.body.img[i] === '') {
@@ -31,7 +30,6 @@ router.post('/', async (req, res) => {
         i--;
       }
     }
-    console.log(req.body.img);
     const newReview = await Review.create(req.body);
     res.redirect('/reviews/' + newReview.id);
   }
