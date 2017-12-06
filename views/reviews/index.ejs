@@ -7,6 +7,14 @@
     <nav>
       <% include ../partials/nav.ejs %>
     </nav>
+
+    <% if (username) { %>
+      <div class="alt-nav">
+        <a href="/user/logout">log out</a>
+      </div>
+    <% } %>
+
+
     <div class="alt-index">
 
         <div class="jumbotron">

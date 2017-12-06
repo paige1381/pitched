@@ -7,9 +7,18 @@
     <nav class="show-nav">
       <% include ../partials/nav.ejs %>
     </nav>
-    <form class="alt-nav" action="/reviews/<%=review.id%>?_method=delete" method="post">
-      <button class="delete">delete</button>
-    </form>
+
+    <div class="alt-nav">
+      <% if (username) { %>
+        <div class="alt-nav">
+          <a href="/user/logout">log out</a>
+        </div>
+      <% } %>
+      <form action="/reviews/<%=review.id%>?_method=delete" method="post">
+        <button class="delete">delete</button>
+      </form>
+    </div>
+
     <div class="content new-edit">
 
       <div class="edit-row">

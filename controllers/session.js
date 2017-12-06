@@ -15,7 +15,8 @@ router.get('/login', async (req, res) => {
   try {
     const allReviews = await Review.find().sort({createdAt: -1}).limit(6);
     res.render('./reviews/login.ejs', {
-      allReviews: allReviews
+      allReviews: allReviews,
+      message: req.session.message
     });
   }
   catch (err) {
@@ -48,13 +49,8 @@ router.post('/login', async (req, res) => {
 // logout
 router.get('/logout', (req, res) => {
   req.session.destroy();
-  res.redirect('/');
+  res.redirect('/user/login');
 });
-
-// router.get('/update', (req, res) => { //any route will work
-// 	req.session.anyProperty = 'changing anyProperty to this value';
-//   console.log(req.session);
-// });
 
 // register
 router.post('/register', async (req, res) => {

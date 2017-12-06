@@ -123,7 +123,10 @@ router.get('/seed', async (req, res) => {
 router.get('/rv', async (req, res) => {
   try {
     const allReviews = await Review.find({type: "RV"}).sort({createdAt: -1});
-    res.render('./reviews/RVindex.ejs', {allReviews});
+    res.render('./reviews/RVindex.ejs', {
+      allReviews: allReviews,
+      username: req.session.username
+    });
   }
   catch (err) {
     res.send(err.message);
@@ -134,7 +137,10 @@ router.get('/rv', async (req, res) => {
 router.get('/car', async (req, res) => {
   try {
     const allReviews = await Review.find({type: "Car"}).sort({createdAt: -1});
-    res.render('./reviews/carindex.ejs', {allReviews});
+    res.render('./reviews/carindex.ejs', {
+      allReviews: allReviews,
+      username: req.session.username
+    });
   }
   catch (err) {
     res.send(err.message);
@@ -145,7 +151,10 @@ router.get('/car', async (req, res) => {
 router.get('/tent', async (req, res) => {
   try {
     const allReviews = await Review.find({type: "Tent"}).sort({createdAt: -1});
-    res.render('./reviews/tentindex.ejs', {allReviews});
+    res.render('./reviews/tentindex.ejs', {
+      allReviews: allReviews,
+      username: req.session.username
+    });
   }
   catch (err) {
     res.send(err.message);
@@ -154,7 +163,9 @@ router.get('/tent', async (req, res) => {
 
 // new
 router.get('/new', (req, res) => {
-  res.render('./reviews/new.ejs');
+  res.render('./reviews/new.ejs', {
+    username: req.session.username
+  });
 });
 
 // show
@@ -171,7 +182,11 @@ router.get('/:id', async (req, res) => {
 // edit
 router.get('/:id/edit', async (req, res) => {
   const review = await Review.findById(req.params.id);
-  res.render('./reviews/edit.ejs', {review});
+  console.log(req.session.username);
+  res.render('./reviews/edit.ejs', {
+    review: review,
+    username: req.session.username
+  });
 });
 
 // update

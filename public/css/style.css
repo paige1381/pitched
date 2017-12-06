@@ -8,7 +8,7 @@ h3 {
 }
 
 nav {
-  margin: 30px 0;
+  margin: 30px 0 0 0;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
@@ -160,8 +160,9 @@ a:hover {
   font-size: 26px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding-right: 5px;
+  border: 1px red solid;
 }
 
 .alt-nav > h2 {
@@ -171,6 +172,10 @@ a:hover {
   flex-direction: row;
   justify-content: flex-end;
   padding-right: 5px;
+}
+
+.alt-nav > a {
+  background-color: azure;
 }
 
 .alt-index-nav {
@@ -319,7 +324,10 @@ a:hover {
 .login-form {
   width: 90%;
   margin-bottom: 10px;
+}
 
+.login-message {
+  color: #b20000;
 }
 
 .border {
