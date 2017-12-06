@@ -11,9 +11,14 @@
     <div class="alt-nav">
       <a href="/user/logout">log out</a>
 
-      <form action="/reviews/<%=review.id%>?_method=delete" method="post">
-        <button class="delete">delete</button>
-      </form>
+      <div>
+        <a class="index-link" href="/reviews/rv">RV</a> |
+        <a class="index-link" href="/reviews/car">Car</a> |
+        <a class="index-link" href="/reviews/tent">Tent</a> |
+        <form class="end-link" action="/reviews/<%=review.id%>?_method=delete" method="post">
+          <button class="delete">delete</button>
+        </form>
+      </div>
     </div>
 
     <div class="content new-edit">

@@ -7,13 +7,16 @@
     <nav>
       <% include ../partials/nav.ejs %>
     </nav>
-
-    <% if (username) { %>
-      <div class="alt-nav">
-        <a href="/user/logout">log out</a>
+    <div class="alt-nav">
+      <% if (username) { %>
+          <a href="/user/logout">log out</a>
+      <% } %>
+      <div>
+        <a class="index-link" href="/reviews/rv">RV</a> |
+        <a class="index-link" href="/reviews/car">Car</a> |
+        <a class="end-link" href="/reviews/tent">Tent</a>
       </div>
-    <% } %>
-
+    </div>
 
     <div class="alt-index">
 
