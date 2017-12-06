@@ -133,6 +133,8 @@ router.get('/rv', async (req, res) => {
   catch (err) {
     res.send(err.message);
   }
+  console.log(req.session.username);
+  console.log(req.session.logged);
 });
 
 // car index
@@ -147,6 +149,8 @@ router.get('/car', async (req, res) => {
   catch (err) {
     res.send(err.message);
   }
+  console.log(req.session.username);
+  console.log(req.session.logged);
 });
 
 // tent index
@@ -161,6 +165,8 @@ router.get('/tent', async (req, res) => {
   catch (err) {
     res.send(err.message);
   }
+  console.log(req.session.username);
+  console.log(req.session.logged);
 });
 
 // new
@@ -168,6 +174,8 @@ router.get('/new', (req, res) => {
   res.render('./reviews/new.ejs', {
     username: req.session.username
   });
+  console.log(req.session.username);
+  console.log(req.session.logged);
 });
 
 // show
@@ -189,11 +197,12 @@ router.get('/:id', async (req, res) => {
 // edit
 router.get('/:id/edit', async (req, res) => {
   const review = await Review.findById(req.params.id);
-  console.log(req.session.username);
   res.render('./reviews/edit.ejs', {
     review: review,
     username: req.session.username
   });
+  console.log(req.session.username);
+  console.log(req.session.logged);
 });
 
 // update
