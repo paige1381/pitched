@@ -38,21 +38,28 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(morgan('dev')); // logs request info in console
-app.use('/reviews', reviewsController);
-app.use('/comments', commmentsController);
-app.use('/user', sessionsController);
 app.use(session({
- secret: "esrxctvygbuhnj",
- resave: false,
- saveUninitialized: false
+  secret: "feedmeseymour", //some random string
+  resave: false,
+  saveUninitialized: false
 }));
 
 
 // Routes =============================
+// controllers
+app.use('/reviews', reviewsController);
+app.use('/comments', commmentsController);
+app.use('/user', sessionsController);
+
 // root
 app.get('/', (req, res) => {
   res.redirect('/reviews');
 });
+
+
+app.get('/test', (req, res) => {
+  res.send(req.session);
+})
 
 
 // Listen =============================

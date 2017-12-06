@@ -314,12 +314,10 @@ a:hover {
   width: 400px;
   display: flex;
   justify-content: center;
-  /*border: 1px solid red;*/
 }
 
 .login-form {
   width: 90%;
-  /*border: 1px solid red;*/
   margin-bottom: 10px;
 
 }

@@ -27,21 +27,20 @@ router.get('/login', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({username: req.body.username});
+    console.log(user);
     if (bcrypt.compareSync(req.body.password, user.password)) {
-      // req.session.message = '';
       req.session.username = req.body.username;
       req.session.logged  = true;
       console.log(req.session, req.body);
       res.redirect('/reviews')
     }
     else {
-      console.log('else in bcrypt compare')
-      req.session.message = 'Username or password are incorrect';
+      req.session.message = 'Username or password is incorrect';
       res.redirect('/user/login');
     }
   }
   catch (err) {
-      req.session.message = 'Username or password are incorrect';
+      req.session.message = 'Username or password is incorrect';
       res.redirect('/user/login');
   }
 });
@@ -66,7 +65,6 @@ router.post('/register', async (req, res) => {
   userDbEntry.password = passwordHash;
   try {
     const user = await User.create(userDbEntry);
-    console.log('user:', user);
     req.session.username = user.username;
     req.session.logged  = true;
     res.redirect('/reviews');
