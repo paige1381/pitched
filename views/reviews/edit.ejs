@@ -9,11 +9,8 @@
     </nav>
 
     <div class="alt-nav">
-      <% if (username) { %>
-        <div class="alt-nav">
-          <a href="/user/logout">log out</a>
-        </div>
-      <% } %>
+      <a href="/user/logout">log out</a>
+
       <form action="/reviews/<%=review.id%>?_method=delete" method="post">
         <button class="delete">delete</button>
       </form>

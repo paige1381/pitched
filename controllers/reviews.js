@@ -12,6 +12,8 @@ const Comment = require('../models/comments.js');
 // index
 router.get('/', async (req, res) => {
   const allReviews = await Review.find().sort({createdAt: -1}).limit(6);
+  console.log(req.session.username);
+  console.log(req.session.logged);
   if (req.session.logged) {
     res.render('./reviews/index.ejs', {
       allReviews: allReviews,
@@ -170,13 +172,18 @@ router.get('/new', (req, res) => {
 
 // show
 router.get('/:id', async (req, res) => {
+  console.log(req.session.username);
+  console.log(req.session.logged);
+  console.log('render page');
   const review = await Review.findById(req.params.id);
-  const comments = await Comment.find({review: review._id}).sort({createdAt: -1});
+  const comments = await Comment.find({review: review._id}).sort({createdAt: 1});
   res.render('./reviews/show.ejs', {
     review: review,
     comments: comments,
     username: req.session.username
   });
+  console.log(req.session.username);
+  console.log(req.session.logged);
 });
 
 // edit

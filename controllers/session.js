@@ -28,11 +28,11 @@ router.get('/login', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({username: req.body.username});
-    console.log(user);
+    // console.log(user);
     if (bcrypt.compareSync(req.body.password, user.password)) {
       req.session.username = req.body.username;
       req.session.logged  = true;
-      console.log(req.session, req.body);
+      // console.log(req.session, req.body);
       res.redirect('/reviews')
     }
     else {
@@ -44,12 +44,6 @@ router.post('/login', async (req, res) => {
       req.session.message = 'Username or password is incorrect';
       res.redirect('/user/login');
   }
-});
-
-// logout
-router.get('/logout', (req, res) => {
-  req.session.destroy();
-  res.redirect('/user/login');
 });
 
 // register
@@ -68,6 +62,12 @@ router.post('/register', async (req, res) => {
   catch (err) {
     res.send(err.message);
   }
+});
+
+// logout
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/user/login');
 });
 
 

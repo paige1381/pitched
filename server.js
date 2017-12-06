@@ -57,10 +57,5 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/test', (req, res) => {
-  res.send(req.session);
-})
-
-
 // Listen =============================
 app.listen(PORT, console.log('listening on port', PORT));

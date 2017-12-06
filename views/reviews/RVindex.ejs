@@ -8,13 +8,16 @@
       <% include ../partials/nav.ejs %>
     </nav>
     <div class="alt-index-nav">
-      <div class="alt-index-title">RV</div>
+      <div>
+        <a href="/user/logout">log out</a>
+      </div>
       <div>
         <a class="index-link" href="/reviews/car">Car</a> |
         <a class="end-link" href="/reviews/tent">Tent</a>
       </div>
     </div>
 
+    <div class="alt-index-title">RV</div>
     <div class="alt-index">
       <% for (var i = 0; i < allReviews.length; i++) { %>
         <a class="index-card" href="/reviews/<%= allReviews[i].id %>">
