@@ -186,7 +186,8 @@ router.get('/user/:username', async (req, res) => {
   const allReviews = await Review.find({submitter: req.params.username}).sort({createdAt: -1});
   res.render('./reviews/userindex.ejs', {
     allReviews: allReviews,
-    submitter: req.params.username
+    submitter: req.params.username,
+    username: req.session.username
   });
   console.log(req.session.username);
   console.log(req.session.logged);

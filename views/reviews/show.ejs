@@ -14,6 +14,9 @@
           <a class="start-link" href="/reviews/user/<%= username %>"><%= username %></a> |
           <a class="index-link" href="/user/logout">log out</a>
         </div>
+      <% }
+      else { %>
+        <a class="start-link" href="/user/login">log in</a>
       <% } %>
 
       <div>
@@ -120,7 +123,15 @@
       </div>
 
       <div class="submitted-by">
-        submitted by <a href="/reviews/user/<%= review.submitter %>"><%= review.submitter %></a>
+
+        <% if (username) { %>
+          submitted by <a href="/reviews/user/<%= review.submitter %>"><%= review.submitter %></a>
+        <% }
+        else { %>
+          submitted by <%= review.submitter %>
+        <% } %>
+
+
       </div>
 
       <div class="review">
@@ -149,17 +160,18 @@
       <% } %>
     </div>
 
-
-    <form action="/comments" method="post">
-      <div class="form-group row ">
-        <div class="col-sm-10 show">
-          <textarea class="form-control" name="comment" placeholder="Comment here" id="exampleFormControlTextarea1" rows="4"></textarea>
+    <% if (username) { %>
+      <form action="/comments" method="post">
+        <div class="form-group row ">
+          <div class="col-sm-10 show">
+            <textarea class="form-control" name="comment" placeholder="Comment here" id="exampleFormControlTextarea1" rows="4"></textarea>
+          </div>
         </div>
-      </div>
-      <input type="hidden" name="commenter" value="<%= username %>"/>
-      <input type="hidden" name="review" value="<%= review._id %>"/>
-      <input type="submit" class="btn submit btn-sm" value="Submit"/>
-    </form>
+        <input type="hidden" name="commenter" value="<%= username %>"/>
+        <input type="hidden" name="review" value="<%= review._id %>"/>
+        <input type="submit" class="btn submit btn-sm" value="Submit"/>
+      </form>
+    <% } %>
 
   </body>
 </html>

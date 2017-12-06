@@ -11,10 +11,15 @@
 
       <% if (username) { %>
         <div>
-        <a class="start-link" href="/reviews/user/<%= username %>"><%= username %></a> |
+          <a class="start-link" href="/reviews/user/<%= username %>"><%= username %></a> |
           <a class="index-link" href="/user/logout">log out</a>
         </div>
+      <% }
+      else { %>
+        <a class="start-link" href="/user/login">log in</a>
       <% } %>
+
+
       <div>
         <% if (review.submitter == username) { %>
           <a class="index-link" href="/reviews/rv">RV</a> |
