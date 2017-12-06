@@ -14,15 +14,15 @@ router.get('/', async (req, res) => {
   const allReviews = await Review.find().sort({createdAt: -1}).limit(6);
   console.log(req.session.username);
   console.log(req.session.logged);
-  if (req.session.logged) {
+  // if (req.session.logged) {
     res.render('./reviews/index.ejs', {
       allReviews: allReviews,
       username: req.session.username
     });
-  }
-  else {
-    res.redirect('/user/login');
-  }
+  // }
+  // else {
+  //   res.redirect('/user/login');
+  // }
 });
 
 // create
@@ -173,6 +173,20 @@ router.get('/tent', async (req, res) => {
 router.get('/new', (req, res) => {
   res.render('./reviews/new.ejs', {
     username: req.session.username
+  });
+  console.log(req.session.username);
+  console.log(req.session.logged);
+});
+
+// user index
+router.get('/user/:username', async (req, res) => {
+  console.log(req.session.username);
+  console.log(req.session.logged);
+  console.log('render page');
+  const allReviews = await Review.find({submitter: req.params.username}).sort({createdAt: -1});
+  res.render('./reviews/userindex.ejs', {
+    allReviews: allReviews,
+    submitter: req.params.username
   });
   console.log(req.session.username);
   console.log(req.session.logged);

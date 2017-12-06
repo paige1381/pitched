@@ -9,7 +9,12 @@
     </nav>
 
     <div class="alt-nav">
-      <a href="/user/logout">log out</a>
+      <% if (username) { %>
+        <div>
+        <a class="start-link" href="/reviews/user/<%= username %>"><%= username %></a> |
+          <a class="index-link" href="/user/logout">log out</a>
+        </div>
+      <% } %>
 
       <div>
         <a class="index-link" href="/reviews/rv">RV</a> |
@@ -89,12 +94,7 @@
           </div>
         </div>
 
-        <div class="form-group row">
-          <label class='col-form-label col-sm-2' for="exampleFormControlInput1">submitted by</label>
-          <div class="col-sm-10">
-            <input type="text" name="submitter" class="form-control" id="exampleFormControlInput1" placeholder="your name">
-          </div>
-        </div>
+        <input type="hidden" name="submitter" value="<%= username %>"/>
 
         <input type="submit" class="btn submit btn-lg" value="submit" >
 

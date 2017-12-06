@@ -2,6 +2,16 @@
   <h1>pitched</h1>
   <span class="glyphicon glyphicon-tent" aria-hidden="true"></span>
 </a>
+
+
+<% if (username) { %>
+
 <a href="/reviews/new">
   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 </a>
+<% }
+else { %>
+  <a href="/user/login">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </a>
+<% } %>

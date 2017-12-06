@@ -9,8 +9,15 @@
     </nav>
     <div class="alt-nav">
       <% if (username) { %>
-          <a href="/user/logout">log out</a>
+        <div>
+          <a class="start-link" href="/reviews/user/<%= username %>"><%= username %></a> |
+          <a class="index-link" href="/user/logout">log out</a>
+        </div>
+      <% }
+      else { %>
+        <a class="start-link" href="/user/login">log in</a>
       <% } %>
+
       <div>
         <a class="index-link" href="/reviews/rv">RV</a> |
         <a class="index-link" href="/reviews/car">Car</a> |
@@ -40,12 +47,26 @@
         <% }) %>
 
         <div class="jumbotron add-review">
-          <a href="/reviews/new" >
-            <h2>
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              <div class="index-link">Add a review</div>
-            </h2>
-          </a>
+
+          <% if (username) { %>
+            <a href="/reviews/new" >
+              <h2>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                <div class="index-link">Add a review</div>
+              </h2>
+            </a>
+
+          <% }
+          else { %>
+            <a href="/user/login" >
+              <h2>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                <div class="index-link">Add a review</div>
+              </h2>
+            </a>
+
+          <% } %>
+
         </div>
 
       </div>

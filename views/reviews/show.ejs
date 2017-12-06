@@ -9,13 +9,27 @@
     </nav>
     <div class="alt-nav">
 
-      <a href="/user/logout">log out</a>
+      <% if (username) { %>
+        <div>
+          <a class="start-link" href="/reviews/user/<%= username %>"><%= username %></a> |
+          <a class="index-link" href="/user/logout">log out</a>
+        </div>
+      <% } %>
 
       <div>
-        <a class="index-link" href="/reviews/rv">RV</a> |
-        <a class="index-link" href="/reviews/car">Car</a> |
-        <a class="index-link" href="/reviews/tent">Tent</a> |
-        <a class="end-link" href="/reviews/<%=review.id%>/edit">edit</a>
+
+        <% if (review.submitter == username) { %>
+          <a class="index-link" href="/reviews/rv">RV</a> |
+          <a class="index-link" href="/reviews/car">Car</a> |
+          <a class="index-link" href="/reviews/tent">Tent</a> |
+          <a class="end-link" href="/reviews/<%=review.id%>/edit">edit</a>
+        <% }
+        else {%>
+          <a class="index-link" href="/reviews/rv">RV</a> |
+          <a class="index-link" href="/reviews/car">Car</a> |
+          <a class="end-link" href="/reviews/tent">Tent</a>
+        <% } %>
+
       </div>
     </div>
 
@@ -103,6 +117,10 @@
           <% } %>
 
         </h2>
+      </div>
+
+      <div class="submitted-by">
+        submitted by <a href="/reviews/user/<%= review.submitter %>"><%= review.submitter %></a>
       </div>
 
       <div class="review">

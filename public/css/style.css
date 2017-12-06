@@ -138,6 +138,15 @@ a:hover {
   justify-content: space-between;
 }
 
+.submitted-by {
+  margin-bottom: 10px;
+}
+
+.submitted-by > a {
+  display: inline-block;
+  text-decoration: underline;
+}
+
 .review {
     font-size: 18px;
 }
@@ -260,6 +269,10 @@ a:hover {
   padding: 0 0 0 10px;
 }
 
+.start-link {
+  padding: 0 10px 0 0;
+}
+
 .comment {
   display: flex;
   flex-direction: row;
@@ -320,17 +333,24 @@ a:hover {
 }
 
 .login {
+  text-align:left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
   width:800px;
   margin: 350px auto;
   background-color: #fff;
   border:1px solid #cccccc;
   padding:15px;
-  text-align:left;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: row;
   border-radius: 15px;
-  justify-content: space-between;
+  /*border: 1px red solid;*/
+  text-align:right;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .login > form {
