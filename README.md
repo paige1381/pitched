@@ -35,10 +35,9 @@ alt="Focus page" width="400" height="496" border="10" /></a>
 alt="Add/Edit" width="400" height="412" border="10" /></a>
 
 ### User Stories: 
-To manage the creation of the app, I roughly framed out a series of user stories that are listed in the document below. The horizontal line in the document splits the stories into two groups: those that were required in order to produce the minimum viable product and those that were stretch goals. In working through these stories, I began with those above this line (representing the MVP), starting with getting the data layer setup and perfected, before moving on to the presentation layer. 
+To manage the creation of the app, I roughly framed out a series of user stories that are listed in the document below. The horizontal line in the document splits the stories into two groups: those that were required in order to produce the minimum viable product (MVP) and those that were stretch goals. In working through these stories, I began with those listed above this line (representing the MVP), starting with the data layer setup (connecting routes to the database, etc.), before moving on to the presentation layer (template page creation). 
 
 https://docs.google.com/document/d/1QSpDlV-q6BiTwUN2nSyUWj9UDVjoobX915E-xXuxCb0/edit
-
 
 ## Heroku Link: 
 
@@ -48,12 +47,12 @@ https://pitched-app.herokuapp.com/reviews
 There are a few things that I would like to come back to or improve upon in the future, given more time to work on the app:
 
 ### Ability to store image files: 
-Right now, users have to add actual urls for the images they'd like to ubmit with their reviews instead of having the ability to send files to the database. I did make an attempt to translate the filepaths into urls but ran into storage spacelimitations. In the future, it would be nice to connect the app to a database that could handle image file storage.
+Right now, users have to add actual urls for the images they'd like to submit with their reviews instead of having the ability to send files to the database. I did make an attempt to translate file paths into urls but ran into storage space limitations. In the future, it would be nice to connect the app to a database that could handle image file storage.
 
 ### Improved error handling on forms: 
-When users leave certain required fields empty on the add and edit page forms, the page redirects to style-less non-user-friendly message and they're required to hit the back button in order to fix the issue. If I had the time, I would go back and make sure that better, more intuitive messages are displayed on the forms, in line with the field causing the error.
+When users leave certain required fields empty on the add and edit page forms, the pages redirect to style-less non-user-friendly messages and they're required to hit the back button in order to fix the issue. If I had the time, I would go back and make sure that better, more intuitive messages are displayed on the forms, in line with the field causing the error.
 
 ### Dynamic login modal: 
-Creating the login/logout functionality was definitely a stretch goal for me so I didn't get too far in making that experience totally seamless. You'll notice that if a user navigates around the site first without logging in and then, on some random page, they decided to hit the log in link, they're alway redirected back to the main page with the log in modal overlaid. That's because the login page is essentially just a replica of the main page with an overlaid modal. In the future, I'd probably add the modal as a partial to each page so that upon clicking log in, wherever you're at on the site, it would pop up and overlay that page. Once you've logged in you'd be taken back to that page, not necessarily the main page.
+Creating the login/logout functionality was definitely a stretch goal for me so I didn't get too far in making that experience totally seamless. You'll notice that if a user navigates around the site first without logging in and then, on some random page, they decide to hit the log in link, they're always redirected back to the main page with the log in modal overlaid. That's because the login page is essentially just a replica of the main page with the overlaid modal. In the future, I'd probably add the modal as a partial to each site page so that upon clicking log in, wherever you're at on the site, it would pop up and overlay that page. Once you've logged in, you'd be taken back to that page, not necessarily the main page.
 
 ### CSS cleanup
