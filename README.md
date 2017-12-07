@@ -3,7 +3,7 @@ pitched is a campsite review app where users can write about and rate their expe
 
 ## Technologies Used
 ### JQuery/JavaScript:
-  * Providing campstie location on hover over thumbnail photos
+  * Providing campsite location on hover over thumbnail photos
 ### Node.js/Express/EJS
   * Templates for main page, type breakouts (i.e. car, tent, etc.), and user posts
   * Template for campsite focus pages 
