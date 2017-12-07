@@ -22,7 +22,7 @@ pitched is a campsite review app where users can write about and rate their expe
 ### Research: 
 I love camping. Car camping, RVing, backpacking, you name it - I just really enjoy spending time outdoors with great people. That being said though, the right campsite can make or break a trip, so I spend a lot of time prior trying to find THE optimal spot to camp. I came up with the idea for this app while trying to do just that for an upcoming vacation and was facing some difficulty finding websites that just reviewed and rated individual campsites in a straightforward, simple way. I drew inspiration from sites with similar concepts, like [Hipcamp](https://www.hipcamp.com/) and [The Dyrt](https://thedyrt.com/).
 
-### Wireframe: 
+### Wireframes: 
 I created the three initial wireframes below to lay out the main page, the campsite focus pages, and the add/edit pages. My goal was to really keep the site simple, yet intuitive, and showcase the photos taken by users.
 
 <img src="https://i.imgur.com/INuPEz9.png" 
