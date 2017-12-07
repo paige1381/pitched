@@ -37,7 +37,7 @@ alt="Add/Edit" width="400" height="412" border="10" /></a>
 ### User Stories: 
 To manage the creation of the app, I roughly framed out a series of user stories that are listed in the document below. The horizontal line in the document splits the stories into two groups: those that were required in order to produce the minimum viable product (MVP) and those that were stretch goals. In working through these stories, I began with those listed above this line (representing the MVP), starting with the data layer setup (connecting routes to the database, etc.), before moving on to the presentation layer (template page creation). 
 
-https://docs.google.com/document/d/1QSpDlV-q6BiTwUN2nSyUWj9UDVjoobX915E-xXuxCb0/edit
+[pitched User Stories](https://docs.google.com/document/d/1QSpDlV-q6BiTwUN2nSyUWj9UDVjoobX915E-xXuxCb0/edit)
 
 ## Heroku Link: 
 
